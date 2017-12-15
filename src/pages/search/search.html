@@ -1,0 +1,54 @@
+<!--
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{ 'SEARCH_TITLE' | translate }}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-searchbar (ionInput)="getItems($event)" placeholder="{{ 'SEARCH_PLACEHOLDER' | translate }}"></ion-searchbar>
+  <ion-list>
+    <button ion-item (click)="openItem(item)" *ngFor="let item of currentItems">
+      <ion-avatar item-start>
+        <img [src]="item.profilePic" />
+      </ion-avatar>
+      <h2>{{item.name}}</h2>
+      <p>{{item.about}}</p>
+      <ion-note item-end *ngIf="item.note">{{item.note}}</ion-note>
+    </button>
+  </ion-list>
+</ion-content>
+-->
+<ion-header>
+  <ion-navbar>
+    <label class="biaoti">电子书</label>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content refreshingSpinner="circles" refreshingText="推荐中" pullingIcon="none"></ion-refresher-content>
+  </ion-refresher>
+
+  <ion-list class="item" style="padding-right:15px">
+    <ion-item *ngFor="let homeArticle of homeArticles" (click)="showArticle($event, homeArticle.url)">
+
+
+      <h2>{{homeArticle.title}}</h2>
+<!--
+        <span> {{homeArticle.author_name}} </span>
+      <span class="date"> {{homeArticle.date}}</span>
+
+      <div class="box"><img src={{homeArticle.picture3}}></div>
+-->  
+
+    </ion-item>
+  </ion-list>
+
+
+</ion-content>
