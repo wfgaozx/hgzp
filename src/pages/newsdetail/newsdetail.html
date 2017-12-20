@@ -12,7 +12,11 @@
 
 </ion-header>
 
+<script type="text/javascript"> 
+alert("aa");
+window.location.href="http://192.168.50.80:81/drupal" 
+</script>
 
 <ion-content padding>
-  {{strHtml}}
+  <div [innerHTML]="strHtml"></div>
 </ion-content>
