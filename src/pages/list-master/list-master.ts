@@ -22,7 +22,7 @@ export class ListMasterPage {
   constructor(public navCtrl: NavController, public items: Items, public modalCtrl: ModalController,
     private http: Http) {
     //    this.currentItems = this.items.query();
-    this.getNews();
+    this.reloadNews();
   }
 
   /**
@@ -62,6 +62,7 @@ export class ListMasterPage {
   }
 
   reloadNews() {
+    this.homeArticles = [];
     this.curpage = 0;
     this.getNews();
   }
@@ -137,7 +138,7 @@ export class ListMasterPage {
     */
   doRefresh(refresher) {
     setTimeout(() => {
-      this.getNews();
+      this.reloadNews();
       refresher.complete();
     }, 500);
 
@@ -147,7 +148,7 @@ export class ListMasterPage {
     console.log('Begin async operation');
 
     setTimeout(() => {
-//      this.loadxhlib_more();
+      this.getnextNews();
 
       console.log('Async operation has ended');
       infiniteScroll.complete();

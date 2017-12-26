@@ -20,7 +20,7 @@ export class NewsdetailPage {
   constructor(public navCtrl: NavController, 
       public navParams: NavParams) {
     this.strHtml = this.navParams.get('html');
-    this.strHtml = this.strHtml.replace('/drupal/sites/default/files/inline-images/', 
+    this.strHtml = this.strHtml.replace(/\/drupal\/sites\/default\/files\/inline-images\//g, 
         'http://192.168.50.80:81/drupal/sites/default/files/inline-images/');
   }
 
