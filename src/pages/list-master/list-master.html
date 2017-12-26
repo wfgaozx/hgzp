@@ -46,13 +46,11 @@
   
   <ion-content>
     <ion-refresher (ionRefresh)="doRefresh($event)">
-      <ion-refresher-content refreshingSpinner="circles" refreshingText="更新中" pullingIcon="none"></ion-refresher-content>
+      <ion-refresher-content refreshingSpinner="circles" refreshingText="重新加载中" pullingIcon="none"></ion-refresher-content>
     </ion-refresher>
   
     <ion-list class="item" style="padding-right:15px ">
       <ion-item *ngFor="let homeArticle of homeArticles let i = index" (click)="showArticle($event, homeArticle, i)">
-  
-  
         <h2>{{homeArticle.title}}</h2>
 <!--
           <span> {{homeArticle.author_name}} </span>
@@ -60,10 +58,16 @@
   
         <div class="box"><img src={{homeArticle.picture3}}></div>
 -->  
-  
       </ion-item>
     </ion-list>
-  
+
+    <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+      <ion-infinite-scroll-content
+        loadingSpinner="bubbles"
+        loadingText="Loading more data...">
+      </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+
   
   </ion-content>
   
